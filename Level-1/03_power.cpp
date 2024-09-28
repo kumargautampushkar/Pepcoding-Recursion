@@ -8,9 +8,9 @@ using namespace std;
 lli power(int x,int n){
     if(n == 0 || n<=0) return 1;
     // The code has been written this way because it makes tracing function call easier using auxillary stack space
-    auto temp = power(x,n-1);
-    auto temp2 = x * temp;
-    return temp2;
+    lli xnm1 = power(x,n-1);
+    lli xnm = x * xnm1;
+    return xnm;
 
 }
 
