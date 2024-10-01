@@ -8,8 +8,25 @@ void all_occurances(const vector <int> &arr, int num, int i, vector <int > &ans)
     all_occurances(arr,num,i+1,ans); 
 }
 
-vector <int> all_occ(const vector <int> & arr, int num, int i, int fsf){
+vector <int> all_occ(const vector <int> & arr, int num, int i = 0, int fsf= 0){
     
+    if(i == arr.size()) 
+    {      
+        vector <int> ans(fsf);
+        return ans;
+    }
+
+    if(arr[i] == num){
+        vector <int> ans = all_occ(arr,num,i+1 ,fsf+1);
+        ans[fsf] = i;
+        return ans;
+    }
+    else{
+        vector <int> ans = all_occ(arr,num,i+1 ,fsf);
+        return ans;
+    }
+        
+
 }
 
 int main(){
@@ -34,7 +51,17 @@ int main(){
         cout<<i<<" ";
     }
     cout<<endl;
-
+    
+    ans = all_occ(v,num);
+    
+    if(ans.size()==0) {
+        cout<<"-1"<<endl;
+        return 0;
+    }
+    for(auto &i:ans){
+        cout<<i<<" ";
+    }
+    cout<<endl;
 
     return 0;
 }
