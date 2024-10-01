@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Video link : https://youtu.be/bQkwHBaNioE?feature=shared
+
 //  This is recursive code to return vector of indices of all occurances
 void all_occurances(const vector <int> &arr, int num, int i, vector <int > &ans){
     if(i == arr.size()) return;
